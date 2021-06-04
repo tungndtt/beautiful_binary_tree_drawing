@@ -10,7 +10,7 @@ __This piece of code helps you to draw the binary tree beautifully.__
 
   Besides, you can also modify **the distance between 2 stages** as well as **the minimal indent-distance between 2 tree nodes**.
 
-- Here is [the demo](https://github.com/tungndtt/beautiful_binary_tree_drawing/blob/main/tree_demo.PNG) 
+- Here is [the demo](https://github.com/tungndtt/beautiful_binary_tree_drawing/blob/main/demo/tree_demo.PNG) 
 
 ## Directory Format
 >By set Mode to DrawMode.DIRECTORY
@@ -19,7 +19,7 @@ __This piece of code helps you to draw the binary tree beautifully.__
 
   You can modyfy **the distance between 2 stages** as well as **the horizontal indent-distance**
 
-- Here is [the demo](https://github.com/tungndtt/beautiful_binary_tree_drawing/blob/main/directory_demo.PNG) 
+- Here is [the demo](https://github.com/tungndtt/beautiful_binary_tree_drawing/blob/main/demo/directory_demo.PNG) 
 
 ## Hierarchy Format
 >By set Mode to DrawMode.HIERARCHY
@@ -28,7 +28,7 @@ __This piece of code helps you to draw the binary tree beautifully.__
   
   You can modify **minimal indent-distance between tree nodes.**
 
-- Here is [the demo](https://github.com/tungndtt/beautiful_binary_tree_drawing/blob/main/hierarchy_demo.PNG) 
+- Here is [the demo](https://github.com/tungndtt/beautiful_binary_tree_drawing/blob/main/demo/hierarchy_demo.PNG) 
 
 ___
 
