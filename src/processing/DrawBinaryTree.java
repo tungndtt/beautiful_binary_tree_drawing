@@ -6,7 +6,56 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class DrawBTree {
+public class DrawBinaryTree extends Draw{
+	
+	private static class Coordination {
+		
+		private int id;
+		
+		private Coordination left, right;
+		
+		private String value;
+		
+		private int coordination;
+		
+		private int stage;
+		
+		Coordination(int id, int stage, Coordination left, Coordination right, String value) {
+			this.id = id;
+			this.left = left;
+			this.right = right;
+			this.value = value;
+			this.stage = stage;
+		}
+		
+		int getId() {
+			return this.id;
+		}
+		
+		int getStage() {
+			return this.stage;
+		}
+		
+		String getValue() {
+			return this.value;
+		}
+		
+		Coordination getLeft() {
+			return this.left;
+		}
+		
+		Coordination getRight() {
+			return this.right;
+		}
+		
+		void setCoordination(int coordination) {
+			this.coordination = coordination;
+		}
+		
+		int getCoordination() {
+			return this.coordination;
+		}
+	}
 	
 	private int minWidthDistance, minHeightDistance;
 	
@@ -18,11 +67,8 @@ public class DrawBTree {
 	
 	private HashMap<Integer, Integer> ancestors;
 	
-	public int[] get() {
-		return this.distancesBetweenStages;
-	}
 	
-	public DrawBTree(int minWidthDistance, int minHeightDistance) {
+	public DrawBinaryTree(int minWidthDistance, int minHeightDistance) {
 		this.minWidthDistance = minWidthDistance > 0 ? minWidthDistance : 1;
 		this.minHeightDistance = minHeightDistance > 0 ? minHeightDistance : 1;
 		this.nodesInStages = new HashMap<>();

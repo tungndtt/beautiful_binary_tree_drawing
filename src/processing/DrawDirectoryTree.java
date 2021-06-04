@@ -2,37 +2,46 @@ package processing;
 
 import java.io.FileWriter;
 
-public class DrawTreeDirectory extends Draw{
+public class DrawDirectoryTree extends Draw{
 	
-	public static class NodeInfo {
+	private static class NodeInfo {
 		private NodeInfo left, right;
 		
 		private String value;
 		
 		private String path;
 		
-		public NodeInfo(NodeInfo left, NodeInfo right, String value, String path) {
+		NodeInfo(NodeInfo left, NodeInfo right, String value, String path) {
 			this.left = left;
 			this.right = right;
 			this.value = value;
 			this.path = path;
 		}
 		
-		public NodeInfo getLeft() {
+		NodeInfo getLeft() {
 			return this.left;
 		}
 		
-		public NodeInfo getRight() {
+		NodeInfo getRight() {
 			return this.right;
 		}
 		
-		public String getValue() {
+		String getValue() {
 			return this.value;
 		}
 		
-		public String getPath() {
+		String getPath() {
 			return this.path;
 		}
+	}
+	
+	private int stageDistance;
+	
+	private int widthIndent;
+	
+	public DrawDirectoryTree(int stageDistance, int widthIndent) {
+		this.stageDistance = stageDistance >= 0 ? stageDistance : 0;
+		this.widthIndent = widthIndent > 0 ? widthIndent : 1;
 	}
 	
 	private <T> NodeInfo clone(TreeNode<T> root, String path) {
@@ -51,12 +60,28 @@ public class DrawTreeDirectory extends Draw{
 		
 		StringBuilder line = new StringBuilder();
 		
+		String spaceIndent = DrawDirectoryTree.repeat(' ', this.widthIndent);
+		
+		if(nodeInfo.getPath() != null && nodeInfo.getPath().length() > 0) {
+			String component = "";
+			
+			for(int i=0; i<path.length()-1; i++) {
+				component += path.charAt(i) == '0' ? "│" + spaceIndent : " " + spaceIndent;
+			}
+			component += "│" + spaceIndent + "\n";
+			
+			for(int i=0; i<this.stageDistance; i++) {
+				line.append(component);
+			}
+		}
+		
 		for(int i=0; i<path.length()-1; i++) {
-			line.append(path.charAt(i) == '0' ? "│  " : "   ");
+			line.append(path.charAt(i) == '0' ? "│" + spaceIndent : " " + spaceIndent);
 		}
 		
 		if(path != null && path.length() > 0) {
-			line.append(path.charAt(path.length()-1) == '0' ? "├──" : "└──");
+			String slack = DrawDirectoryTree.repeat('─', this.widthIndent);
+			line.append(path.charAt(path.length()-1) == '0' ? "├" + slack : "└" + slack);
 		}
 		
 		line.append(nodeInfo.getValue() + "\n");
@@ -96,5 +121,13 @@ public class DrawTreeDirectory extends Draw{
 			System.out.println(e);
 			return false;
 		}
+	}
+	
+	private static String repeat(char character, int number) {
+		String result = "";
+		while(number-- > 0) {
+			result += character;
+		}
+		return result;
 	}
 }

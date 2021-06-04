@@ -1,18 +1,43 @@
 package main;
 
-import processing.Coordination;
-import processing.DrawBTree;
+import processing.Draw;
+import processing.DrawMode;
+import processing.DrawFactory;
 import processing.TreeNode;
 
 public class Main {
+	
+	private static final String filePath = "beautiful_binary_tree.txt";
+	
+	private static DrawMode mode = DrawMode.DIRECTORY;
+	
 	public static void main(String[] args) {
-		DrawBTree drawer = new DrawBTree(2, 3);
-		TreeNode<Integer> lrl = new TreeNode<>(null, null, 123);
+		
+		// create tree node
+		TreeNode<String> root = Main.createTreeFromFile();
+		
+		// draw tree
+		DrawFactory drawFactory = new DrawFactory(1,2);
+		Draw drawer = drawFactory.getDrawer(mode);
+		
+		boolean success = drawer.drawToFile(filePath, root);
+		
+		if(success) System.out.print("Open your file to see the masterpiece!");
+		else System.out.print("Oh! Somethings went wrong!");
+		
+	}
+	
+	@SuppressWarnings("unused")
+	private static TreeNode<Integer> manuallyCreateTree() {
+		TreeNode<Integer> lrll = new TreeNode<>(null, null, 4568);
+		TreeNode<Integer> lrl = new TreeNode<>(lrll, null, 123);
 		TreeNode<Integer> lrrr = new TreeNode<>(null, null, 24242);
 		TreeNode<Integer> lrr = new TreeNode<>(null, lrrr, 12345);
 		TreeNode<Integer> lr = new TreeNode<>(lrl, lrr, 4567);
 		
-		TreeNode<Integer> ll = new TreeNode<>(null, null, 10789);
+		TreeNode<Integer> llrr = new TreeNode<>(null, null, 46275);
+		TreeNode<Integer> llr = new TreeNode<>(null, llrr, 2427542);
+		TreeNode<Integer> ll = new TreeNode<>(null, llr, 10789);
 		TreeNode<Integer> l = new TreeNode<>(ll, lr, 3512);
 		
 		TreeNode<Integer> rlll = new TreeNode<>(null, null, 561270);
@@ -27,29 +52,15 @@ public class Main {
 		
 		TreeNode<Integer> root = new TreeNode<>(l, r, 42298);
 		
-		/*
-		Coordination coord = drawer.clone(root, 0, 0);
-
-		System.out.println(coord.getId() + " " + coord.getValue().length());
-		System.out.println(coord.getLeft().getId() + " " + coord.getLeft().getValue());
-		System.out.println(coord.getLeft().getLeft().getLeft());
-		System.out.println(coord.getLeft().getLeft().getId() + " " + coord.getLeft().getLeft().getValue());
-		System.out.println(coord.getLeft().getRight().getId() + " " + coord.getLeft().getRight().getValue());
-		*/
+		return root;
+	}
+	
+	@SuppressWarnings("unused")
+	private static TreeNode<String> createTreeFromFile() {
 		
-		/*
-		for(Integer stage : drawer.get().keySet()) {
-			System.out.println("stage " + stage);
-			for(Coordination c : drawer.get().get(stage)) {
-				System.out.print(c.getValue() + " ");
-			}
-			System.out.println();
-		}
-		*/
-
-		boolean success = drawer.drawToFile("beautiful_binary_tree.txt", root);
+		final String my_tree_file = "my_tree.txt"; 
 		
-		if(success) System.out.print("Open your file to see the masterpiece!");
-		else System.out.print("Oh! Somethings went wrong!");
+		TreeNode<String> root = TreeNode.parseTreeFromFile(my_tree_file);
+		return root;
 	}
 }
