@@ -1,7 +1,7 @@
 # Beautiful binary tree drawing
 __This piece of code helps you to draw the binary tree beautifully.__
 
-[DrawFactory](https://github.com/tungndtt/beautiful_binary_tree_drawing/tree/main/src/processing/DrawFactory.java) provides the drawer, which displays your tree in following formats :
+[DrawFactory](https://github.com/tungndtt/beautiful_binary_tree_drawing/blob/main/src/processing/DrawFactory.java) provides the drawer, which displays your tree in following formats :
 
 ## Tree Format
 >By set Mode to DrawMode.TREE
@@ -10,7 +10,7 @@ __This piece of code helps you to draw the binary tree beautifully.__
 
   Besides, you can also modify **the distance between 2 stages** as well as **the minimal indent-distance between 2 tree nodes**.
 
-- Here is [the demo](https://github.com/tungndtt/beautiful_binary_tree_drawing/tree_demo.PNG) 
+- Here is [the demo](https://github.com/tungndtt/beautiful_binary_tree_drawing/blob/main/tree_demo.PNG) 
 
 ## Directory Format
 >By set Mode to DrawMode.DIRECTORY
@@ -19,7 +19,7 @@ __This piece of code helps you to draw the binary tree beautifully.__
 
   You can modyfy **the distance between 2 stages** as well as **the horizontal indent-distance**
 
-- Here is [the demo](https://github.com/tungndtt/beautiful_binary_tree_drawing/directory_demo.PNG) 
+- Here is [the demo](https://github.com/tungndtt/beautiful_binary_tree_drawing/blob/main/directory_demo.PNG) 
 
 ## Hierarchy Format
 >By set Mode to DrawMode.HIERARCHY
@@ -28,7 +28,7 @@ __This piece of code helps you to draw the binary tree beautifully.__
   
   You can modify **minimal indent-distance between tree nodes.**
 
-- Here is [the demo](https://github.com/tungndtt/beautiful_binary_tree_drawing/hierarchy_demo.PNG) 
+- Here is [the demo](https://github.com/tungndtt/beautiful_binary_tree_drawing/blob/main/hierarchy_demo.PNG) 
 
 ___
 
@@ -41,6 +41,6 @@ In addition: If you are tired of constructing the tree node-instances by hand. Y
   - r (right)
   - l (left) 
   
-  You can look into this [Example](https://github.com/tungndtt/beautiful_binary_tree_drawing/my_tree.txt)
+  You can look into this [Example](https://github.com/tungndtt/beautiful_binary_tree_drawing/blob/main/my_tree.txt)
 - Just read text file (.txt-format)
 - One node information per line
